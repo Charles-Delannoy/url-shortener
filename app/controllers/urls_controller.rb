@@ -1,8 +1,13 @@
 class UrlsController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:index, :create]
+  skip_before_action :authenticate_user!, only: [:index, :create, :show]
 
   def index
     redirect_to root_path
+  end
+
+  def show
+    url = Url.where(generated_token: params[:generated_token]).first
+    redirect_to url.base_url
   end
 
   def create
