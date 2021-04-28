@@ -6,8 +6,8 @@ RSpec.describe User, type: :model do
       create(:user)
       user = build(:user)
       user.validate
-      expect(url.errors.messages).to include(:username)
-      expect(url.errors.messages[:username]).to include("has already been taken")
+      expect(user.errors.messages).to include(:username)
+      expect(user.errors.messages[:username]).to include("has already been taken")
     end
   end
 end
