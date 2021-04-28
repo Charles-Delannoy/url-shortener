@@ -1,6 +1,7 @@
 <h1>Welcome to URL Shortener</h1>
 
-<%= simple_form_for @url do |f| %>
-  <%= f.input :base_url, placeholder: 'Enter the url to shortened', label: false %>
-  <%= f.submit 'Shorten my URL', class: 'btn btn-primary' %>
+<%= render 'pages/url_form', url: @url %>
+
+<% if @saved_url %>
+  <%= link_to "#{root_url}#{@saved_url.generated_token}", "#" %>
 <% end %>

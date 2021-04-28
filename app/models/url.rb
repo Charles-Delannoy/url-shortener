@@ -13,5 +13,4 @@ class Url < ApplicationRecord
       token
     end
   end
-
 end
