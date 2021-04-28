@@ -16,5 +16,11 @@ RSpec.describe Url, type: :model do
       expect(url.errors.messages).to include(:generated_token)
       expect(url.errors.messages[:generated_token]).to include("has already been taken")
     end
+
+    it 'should persist the url if validation are ok' do
+      n_urls = Url.count
+      create(:url)
+      expect(Url.count).to eq(n_urls + 1)
+    end
   end
 end
