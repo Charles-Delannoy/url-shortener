@@ -6,6 +6,13 @@ RSpec.describe Url, type: :model do
       Url.destroy_all
     end
 
+    it 'should check the presence of the base_url' do
+      url = Url.new()
+      url.validate
+      expect(url.errors.messages).to include(:base_url)
+      expect(url.errors.messages[:base_url]).to include("can't be blank")
+    end
+
     it 'should check the format of the base_url' do
       url = Url.new(base_url: "snjzk#")
       url.validate
