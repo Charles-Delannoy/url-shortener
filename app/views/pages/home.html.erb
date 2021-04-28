@@ -1,2 +1,6 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<h1>Welcome to URL Shortener</h1>
+
+<%= simple_form_for @url do |f| %>
+  <%= f.input :base_url, placeholder: 'Enter the url to shortened', label: false %>
+  <%= f.submit 'Shorten my URL', class: 'btn btn-primary' %>
+<% end %>

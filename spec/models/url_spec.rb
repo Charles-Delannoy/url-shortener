@@ -45,4 +45,14 @@ RSpec.describe Url, type: :model do
       expect(url.user).to be_a(User)
     end
   end
+
+  describe 'Url#generate_token' do
+    it 'return a string' do
+      expect(Url.generate_token).to be_a(String)
+    end
+
+    it 'generate random token with 6 characters' do
+      expect(Url.generate_token.length).to eq(6)
+    end
+  end
 end
