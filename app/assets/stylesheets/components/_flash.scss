@@ -1,0 +1,30 @@
+.flash {
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+  padding: 10px 20px;
+  border-radius: 15px 3px 0px 3px;
+  button {
+    border: none;
+    margin-left: 5px;
+    cursor: pointer;
+  }
+}
+
+.flash-notice {
+  background: $notice-light;
+  color: $notice;
+  button {
+    background: $notice-light;
+    color: $notice;
+  }
+}
+
+.flash-alert {
+  background: $alert;
+  color: #fff;
+  button {
+    background: $alert;
+    color: #fff;
+  }
+}

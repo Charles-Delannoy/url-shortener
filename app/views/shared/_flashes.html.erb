@@ -1,0 +1,20 @@
+<% if notice %>
+  <div data-controller="flashes">
+    <div class="flash flash-notice" data-flashes-target='flash'>
+      <%= notice %>
+      <button type="button" data-action="click->flashes#dismiss">
+        X
+      </button>
+    </div>
+  </div>
+<% end %>
+<% if alert %>
+  <div data-controller="flashes">
+    <div class="flash flash-alert" data-flashes-target='flash'>
+      <%= alert %>
+      <button type="button" data-action="click->flashes#dismiss">
+        X
+      </button>
+    </div>
+  </div>
+<% end %>

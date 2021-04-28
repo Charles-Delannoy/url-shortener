@@ -1,0 +1,31 @@
+.form-inputs {
+  .input {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+    label {
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: flex-end;
+      margin-bottom: 0.5em;
+      abbr {
+        text-decoration: none;
+      }
+    }
+    input {
+      height: 24px;
+      border: 1px solid $medium-gray;
+      border-radius: $base-radius;
+    }
+    label.boolean {
+      align-items: center;
+      flex-direction: row;
+      justify-content: flex-start;
+    }
+  }
+
+  .hint {
+    color: gray;
+    font-size: 11px;
+  }
+}

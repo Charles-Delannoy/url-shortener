@@ -1,0 +1,14 @@
+.btn {
+  padding: 8px 20px;
+  border-radius: $base-radius;
+  border: 1px solid $medium-gray;
+}
+
+.btn-primary {
+  background-color: $primary-color;
+}
+
+input.btn {
+  background-color: $primary-color;
+  color: #fff;
+}
