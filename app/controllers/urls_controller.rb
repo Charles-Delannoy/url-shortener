@@ -12,7 +12,7 @@ class UrlsController < ApplicationController
 
   def create
     @url = Url.new(url_params)
-    set_token
+    set_token if @url.generated_token.empty?
     if @url.save
       @saved_url = @url
       @url = Url.new
@@ -28,6 +28,6 @@ class UrlsController < ApplicationController
   end
 
   def url_params
-    params.require(:url).permit(:base_url)
+    params.require(:url).permit(:base_url, :generated_token)
   end
 end
