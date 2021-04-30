@@ -37,7 +37,7 @@ class UrlsController < ApplicationController
 
   def init_index
     @url = Url.new
-    @urls = Url.where(user: current_user)
+    @urls = Url.where(user: current_user).order(created_at: :desc)
   end
 
   def set_token
