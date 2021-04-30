@@ -54,10 +54,18 @@ RSpec.describe UrlsController, type: :controller do
   end
 
   describe '#Destroy' do
-    it 'should destroy the record' do
+    it 'should destroy the record if the user is the owner' do
+      sign_in users(:user_test)
+      url = build(:url)
+      url.user = users(:user_test)
+      url.save
+      expect { delete :destroy, params: { id: url } }.to change(Url, :count).by(-1)
+    end
+
+    it 'should not destroy the record if the user is not the owner' do
       sign_in users(:user_test)
       url = create(:url)
-      expect { delete :destroy, params: { id: url } }.to change(Url, :count).by(-1)
+      expect { delete :destroy, params: { id: url } }.to change(Url, :count).by(0)
     end
   end
 end

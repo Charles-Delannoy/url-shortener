@@ -29,7 +29,7 @@ class UrlsController < ApplicationController
 
   def destroy
     @url = Url.find(params[:id])
-    @url.destroy
+    @url.destroy if @url.user == current_user
     redirect_to urls_path
   end
 
