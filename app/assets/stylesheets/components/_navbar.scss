@@ -1,0 +1,19 @@
+.navbar {
+  background-color: #fff;
+  height: 40px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  border-bottom: 1px solid $medium-gray;
+}
+
+.actions {
+  a {
+    margin-right: 10px;
+    text-decoration: none;
+    color: $primary-color;
+    &:hover {
+      color: $blue;
+    }
+  }
+}

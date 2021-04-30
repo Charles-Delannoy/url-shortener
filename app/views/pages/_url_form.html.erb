@@ -1,5 +1,7 @@
-<%= simple_form_for url do |f| %>
-  <%= f.input :base_url, placeholder: 'Enter the url to shortened', label: false %>
-  <%= f.input :generated_token, placeholder: 'enter a custom path (optional)', label: false %>
-  <%= f.submit 'Shorten my URL', class: 'btn btn-primary' %>
-<% end %>
+<div class="url-form">
+  <%= simple_form_for url do |f| %>
+    <%= f.input :base_url, placeholder: 'Enter the url to shortened', label: false %>
+    <%= f.input :generated_token, placeholder: 'enter a custom path (optional)', label: false %>
+    <%= f.submit 'Shorten my URL', class: 'btn btn-primary' %>
+  <% end %>
+</div>
