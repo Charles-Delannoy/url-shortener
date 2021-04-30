@@ -1,0 +1,11 @@
+<h1>My Urls</h1>
+
+<%= render 'pages/url_form', url: @url %>
+
+<% @urls.each do |url| %>
+  <div class='url-card'>
+    <p>Base url: <%= url.base_url %></p>
+    <% url = "#{root_url}#{url.generated_token}" %>
+    <%= link_to url, url, target: "_blank" %>
+  </div>
+<% end %>

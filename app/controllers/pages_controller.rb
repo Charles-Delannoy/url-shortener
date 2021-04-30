@@ -3,5 +3,6 @@ class PagesController < ApplicationController
 
   def home
     @url = Url.new
+    redirect_to urls_path if current_user
   end
 end
