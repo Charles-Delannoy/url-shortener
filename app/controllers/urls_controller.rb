@@ -19,9 +19,12 @@ class UrlsController < ApplicationController
       @saved_url = @url
       @url = Url.new
     end
-    render 'pages/home' unless current_user
-    init_index
-    render :index
+    if current_user
+      init_index
+      render :index
+    else
+      render 'pages/home' unless current_user
+    end
   end
 
   private
