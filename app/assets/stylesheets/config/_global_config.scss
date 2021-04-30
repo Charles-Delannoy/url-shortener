@@ -3,8 +3,13 @@ $base-radius: 3px;
 body {
   font-family: $body-font;
   background-color: $light-gray;
+  margin: 0;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: $headers-font;
+}
+
+.container {
+  margin: 25px 2%;
 }
