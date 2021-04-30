@@ -4,8 +4,9 @@
 
 <% @urls.each do |url| %>
   <div class='url-card'>
-    <p>Base url: <%= url.base_url %></p>
+    <p><%= url.base_url %></p>
     <% url = "#{root_url}#{url.generated_token}" %>
     <%= link_to url, url, target: "_blank" %>
+    <%= link_to '<i class="fas fa-trash"></i>'.html_safe, url_path(url), method: :delete, data: { confirm: "are you sure?" } %>
   </div>
 <% end %>
