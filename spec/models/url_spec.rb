@@ -7,7 +7,7 @@ RSpec.describe Url, type: :model do
     end
 
     it 'should check the presence of the base_url' do
-      url = Url.new()
+      url = Url.new
       url.validate
       expect(url.errors.messages).to include(:base_url)
       expect(url.errors.messages[:base_url]).to include("can't be blank")
@@ -18,6 +18,13 @@ RSpec.describe Url, type: :model do
       url.validate
       expect(url.errors.messages).to include(:base_url)
       expect(url.errors.messages[:base_url]).to include("is invalid")
+    end
+
+    it 'should check the length of the generated_token' do
+      url = build(:short_token_url)
+      url.validate
+      expect(url.errors.messages).to include(:generated_token)
+      expect(url.errors.messages[:generated_token]).to include("is too short (minimum is 3 characters)")
     end
 
     it 'should check the uniqueness of the generated_token' do
