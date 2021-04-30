@@ -4,6 +4,6 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
-  resources :urls, only: [:index, :create]
-  get ':generated_token', to: "urls#show", as: 'url'
+  resources :urls, only: [:index, :create, :destroy]
+  get ':generated_token', to: "urls#show"
 end

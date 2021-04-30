@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe UrlsController, type: :controller do
   fixtures :users
 
-  describe 'POST #create' do
+  describe '#create' do
     context 'valid params' do
       before(:each) do
         post :create, params: { url: attributes_for(:url) }
@@ -50,6 +50,22 @@ RSpec.describe UrlsController, type: :controller do
       it 'should not create the @saved_url' do
         expect(assigns(:saved_url)).to eq(nil)
       end
+    end
+  end
+
+  describe '#Destroy' do
+    it 'should destroy the record if the user is the owner' do
+      sign_in users(:user_test)
+      url = build(:url)
+      url.user = users(:user_test)
+      url.save
+      expect { delete :destroy, params: { id: url } }.to change(Url, :count).by(-1)
+    end
+
+    it 'should not destroy the record if the user is not the owner' do
+      sign_in users(:user_test)
+      url = create(:url)
+      expect { delete :destroy, params: { id: url } }.to change(Url, :count).by(0)
     end
   end
 end
