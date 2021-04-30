@@ -10,5 +10,10 @@
 .actions {
   a {
     margin-right: 10px;
+    text-decoration: none;
+    color: $primary-color;
+    &:hover {
+      color: $blue;
+    }
   }
 }

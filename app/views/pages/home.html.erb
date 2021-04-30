@@ -4,5 +4,5 @@
 
 <% if @saved_url %>
   <% url = "#{root_url}#{@saved_url.generated_token}" %>
-  <%= link_to url, url, target: "_blank" %>
+  <%= link_to url, url, target: "_blank" %> 👉 <%= @saved_url.base_url %>
 <% end %>
