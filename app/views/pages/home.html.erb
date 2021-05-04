@@ -3,6 +3,9 @@
 <%= render 'pages/url_form', url: @url %>
 
 <% if @saved_url %>
-  <% url = "#{root_url}#{@saved_url.generated_token}" %>
-  <%= link_to url, url, target: "_blank" %> 👉 <%= @saved_url.base_url %>
+  <div data-controller="copy-link">
+    <i class="fas fa-copy" data-action="click->copy-link#copy"></i>
+    <% url = "#{root_url}#{@saved_url.generated_token}" %>
+    <%= link_to url, url, target: "_blank", 'data-copy-link-target': 'link'%> 👉 <%= @saved_url.base_url %>
+  </div>
 <% end %>
