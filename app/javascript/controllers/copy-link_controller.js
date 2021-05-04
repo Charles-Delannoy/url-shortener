@@ -3,9 +3,6 @@ import { Controller } from "stimulus";
 export default class extends Controller {
   static targets = [ 'link' ];
 
-  connect() {
-    console.log(this.linkTarget);
-  }
   copy = () => {
     const range = document.createRange();
     const selection = window.getSelection();
