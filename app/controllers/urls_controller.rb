@@ -15,16 +15,8 @@ class UrlsController < ApplicationController
     @url = Url.new(url_params)
     set_token if @url.generated_token.empty?
     @url.user = current_user if current_user
-    if @url.save
-      @saved_url = @url
-      @url = Url.new
-    end
-    if current_user
-      init_index
-      render :index
-    else
-      render 'pages/home' unless current_user
-    end
+    save_url
+    render_appropriate_page
   end
 
   def destroy
@@ -34,6 +26,24 @@ class UrlsController < ApplicationController
   end
 
   private
+
+  def render_appropriate_page
+    if current_user
+      @urls = Url.where(user: current_user).order(created_at: :desc)
+      render :index
+    else
+      render 'pages/home' unless current_user
+    end
+  end
+
+  def save_url
+    if @url.save
+      @saved_url = @url
+      @url = Url.new
+    elsif url_params[:generated_token].empty?
+      @url.generated_token = nil
+    end
+  end
 
   def init_index
     @url = Url.new
