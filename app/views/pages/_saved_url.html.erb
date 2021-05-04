@@ -1,0 +1,4 @@
+<div data-controller="copy-link">
+  <i class="fas fa-copy" data-action="click->copy-link#copy"></i>
+  <%= link_to url, url, target: "_blank", 'data-copy-link-target': 'link'%> 👉 <%= @saved_url.base_url %>
+</div>
