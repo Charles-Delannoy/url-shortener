@@ -5,13 +5,7 @@
 <div class="url-cards">
   <% @urls.each do |url| %>
     <div data-controller="copy-link">
-      <div class='url-card'>
-        <p><%= url.base_url %></p>
-        <% short_url = "#{root_url}#{url.generated_token}" %>
-        <i class="fas fa-copy" data-action="click->copy-link#copy"></i>
-        <%= link_to short_url, short_url, target: "_blank", 'data-copy-link-target': 'link' %>
-        <%= link_to '<i class="fas fa-trash"></i>'.html_safe, url_path(url.id), method: :delete, data: { confirm: "are you sure?" } %>
-      </div>
+      <%= url_card_tag url %>
     </div>
   <% end %>
 </div>
