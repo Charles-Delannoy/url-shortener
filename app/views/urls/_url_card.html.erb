@@ -1,6 +1,6 @@
 <div class='url-card'>
   <p><%= url.base_url %></p>
   <i class="fas fa-copy" data-action="click->copy-link#copy"></i>
-  <%= link_to short_url, short_url, target: "_blank", 'data-copy-link-target': 'link' %>
+  <%= link_to short_url, short_url_path(generated_token: url.generated_token), target: "_blank", 'data-copy-link-target': 'link' %>
   <%= link_to '<i class="fas fa-trash"></i>'.html_safe, url_path(url.id), method: :delete, data: { confirm: "are you sure?" } %>
 </div>

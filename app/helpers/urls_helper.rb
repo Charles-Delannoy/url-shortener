@@ -1,4 +1,9 @@
 module UrlsHelper
+
+  def generated_url
+    saved_url_tag(@saved_url) if @saved_url
+  end
+
   def saved_url_tag(saved_url)
     url = "#{root_url}#{saved_url.generated_token}"
     render 'pages/saved_url', url: url
